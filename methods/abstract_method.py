@@ -1,22 +1,14 @@
 from typing import Callable
 
-def solve_abstract_integral(method_function: Callable[[float, float, float], float], a: float, b: float, 
-                       accuracy: float, partition_value: int):
-    h = calculate_h(a, b, partition_value)
+def solve_abstract_method(method_function: Callable[[int], float], partition_value: int, accuracy: float, accuracy_order: int):
 
-    previous_result = 1e10
-    current_result = method_function(a, b, h)
+    previous_result: float = 1e10
+    current_result: float = method_function(partition_value)
 
-    while abs(current_result - previous_result) >= accuracy:
-
+    while abs(current_result - previous_result) / (2 ** accuracy_order - 1) >= accuracy:
         partition_value *= 2
-        h = calculate_h(a, b, partition_value)
 
         previous_result = current_result
-        current_result = method_function(a, b, h)
+        current_result = method_function(partition_value)
     
-    return current_result
-
-
-def calculate_h(a: float, b: float, partition_value: int):
-    return (b - a) / partition_value
+    return current_result, partition_value
