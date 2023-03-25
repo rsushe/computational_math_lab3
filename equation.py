@@ -11,7 +11,7 @@ class Equation:
 
 
 first_equation = Equation(lambda x: -1.4 * x ** 3 - 0.9 * x ** 2 + 10.67 * x - 2.34, "-1.4x^3 - 0.9x^2 + 10.67x - 2.34")
-second_equation = Equation(lambda x: exp(3) * x / x ** (1 / 2), "e^x * x / sqrt(x)")
+second_equation = Equation(lambda x: exp(x) * x / x ** (1 / 2), "e^x * x / sqrt(x)")
 third_equation = Equation(lambda x: sin(x) - cos(x) + 1.5 * x, "sin(x) - cos(x) + 1.5x")
 
 equations: list[Equation] = [
