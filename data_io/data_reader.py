@@ -23,7 +23,7 @@ def read_input_data():
 
     input_data.equation = read_single_equation()
     
-    input_data.method = read_user_choice([1, 2, 3, 4, 5], "Введите 1 чтобы выбрать метод Хорд, 2 чтобы выбрать метод секущих или 3 чтобы выбрать метод простой итерации: ")    
+    input_data.method = read_method()    
 
     input_data.integration_interval = read_integration_interval()
 
