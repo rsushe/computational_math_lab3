@@ -24,7 +24,7 @@ def left(equation: Equation, a: float, b: float, accuracy: float, partition_valu
 
     for i in range(len(intervals_without_break_points) // 2):
         method_function: Callable[[int], float] = lambda partition_value: _calculate(equation.itself, intervals_without_break_points[i * 2], intervals_without_break_points[i * 2 + 1], partition_value, 0)
-        current_result, current_partition_value = solve_abstract_method(method_function, partition_value, accuracy, 1)
+        current_result, current_partition_value = solve_abstract_method(method_function, partition_value, accuracy, 2)
 
         integral_result += current_result
         partition_value_result = max(partition_value_result, current_partition_value)
@@ -39,7 +39,7 @@ def middle(equation: Equation, a: float, b: float, accuracy: float, partition_va
 
     for i in range(len(intervals_without_break_points) // 2):
         method_function: Callable[[int], float] = lambda partition_value: _calculate(equation.itself, intervals_without_break_points[i * 2], intervals_without_break_points[i * 2 + 1], partition_value, 0.5)
-        current_result, current_partition_value = solve_abstract_method(method_function, partition_value, accuracy, 1)
+        current_result, current_partition_value = solve_abstract_method(method_function, partition_value, accuracy, 2)
 
         integral_result += current_result
         partition_value_result = max(partition_value_result, current_partition_value)
@@ -55,7 +55,7 @@ def right(equation: Equation, a: float, b: float, accuracy: float, partition_val
 
     for i in range(len(intervals_without_break_points) // 2):
         method_function: Callable[[int], float] = lambda partition_value: _calculate(equation.itself, intervals_without_break_points[i * 2], intervals_without_break_points[i * 2 + 1], partition_value, 1)
-        current_result, current_partition_value = solve_abstract_method(method_function, partition_value, accuracy, 1)
+        current_result, current_partition_value = solve_abstract_method(method_function, partition_value, accuracy, 2)
 
         integral_result += current_result
         partition_value_result = max(partition_value_result, current_partition_value)
