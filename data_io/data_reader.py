@@ -69,7 +69,7 @@ def read_integration_interval():
         try:
             interval_end: float = float(input().replace(",", "."))
             if interval_end <= interval_start:
-                print("Конец интервала должен быть строго больше чем начало интервала, повторите ввод: ", end="")
+                print("Конец интервала должен быть строго больше чем начало интервала, повторите ввод конечной границы: ", end="")
                 continue
             break
         except ValueError:
@@ -84,7 +84,7 @@ def read_accuracy():
         try:
             accuracy: float = float(input().replace(",", "."))
             if accuracy <= 0:
-                print("Точность не может быть отрицательной, повторите ввод: ", end="")
+                print("Точность должна быть строго больше 0, повторите ввод: ", end="")
                 continue
             break
         except ValueError:
